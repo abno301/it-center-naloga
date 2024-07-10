@@ -1,0 +1,12 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+*.suo
+*.user
+*.ncb
+Debug/
+Release/
+CodeAnalyst/
+.idea

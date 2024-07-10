@@ -1,0 +1,67 @@
+﻿@model it_center_naloga.Models.Ticket
+
+@{
+    ViewBag.Title = "Send Ticket";
+}
+
+<h2>Send a new ticket</h2>
+
+<form asp-action="Index" method="post" class="form-container">
+    <div class="form-group">
+        <label for="Name" class="form-label">Name:</label>
+        <input type="text" id="Name" name="Name" asp-for="Name" class="form-input" required />
+        <span asp-validation-for="Name" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <label for="Surname" class="form-label">Surname:</label>
+        <input type="text" id="Surname" name="Surname" asp-for="Surname" class="form-input" required />
+        <span asp-validation-for="Surname" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <label for="Address" class="form-label">Address:</label>
+        <input type="text" id="Address" name="Address" asp-for="Address" class="form-input" required />
+        <span asp-validation-for="Address" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <label for="Phone" class="form-label">Phone Number:</label>
+        <input type="text" id="Phone" name="Phone" asp-for="Phone" class="form-input" required />
+        <span asp-validation-for="Phone" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <label for="Email" class="form-label">Email:</label>
+        <input type="email" id="Email" name="Email" asp-for="Email" class="form-input" required />
+        <span asp-validation-for="Email" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <label for="TicketCategory" class="form-label">Ticket Category:</label>
+        <select id="TicketCategory" name="TicketCategory" asp-for="TicketCategory" class="form-input" required>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+        </select>
+        <span asp-validation-for="TicketCategory" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <label for="TicketContent" class="form-label">Ticket Content:</label>
+        <textarea id="TicketContent" name="TicketContent" asp-for="TicketContent" class="form-input" required></textarea>
+        <span asp-validation-for="TicketContent" class="form-validation"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="form-button">Submit</button>
+    </div>
+</form>
+
+@if (ViewBag.Response == "Success")
+{
+    <div class="alert alert-success">
+        <p>Ticket sent successfully!</p>
+    </div>
+}
+else if (!string.IsNullOrEmpty(ViewBag.Response))
+{
+    <div class="alert alert-info">
+        <h5>Something went wrong:</h5>
+        <p>@ViewBag.Response</p>
+    </div>
+}
+
